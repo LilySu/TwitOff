@@ -4,7 +4,7 @@ from decouple import config
 from flask import Flask, render_template, request
 from .models import DB, User
 from .twitter import add_or_update_user
-from .predict2 import predict_user
+from .predict2 import predict_user, add_users
 
 def create_app():
     """Create and configure an instance of the Flask application."""
@@ -51,6 +51,7 @@ def create_app():
     def reset():
         DB.drop_all()
         DB.create_all()
-        return render_template('base.html', title='DB Reset!', users=[])
+        add_users()
+        return render_template('base.html', title='Reset database!', users=[])
 
     return app

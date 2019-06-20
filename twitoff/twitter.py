@@ -38,6 +38,14 @@ def add_or_update_user(username):
       raise e
   else:
       DB.session.commit()
+      
+def add_users(users=TWITTER_USERS):
+    """
+    Add/update a list of users (strings of user names).
+    May take awhile, so run "offline" (flask shell).
+    """
+    for user in users:
+        add_or_update_user(user)
 
 
       
