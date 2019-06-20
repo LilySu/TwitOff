@@ -9,7 +9,7 @@ from .predict2 import predict_user
 def create_app():
     """Create and configure an instance of the Flask application."""
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('HEROKU_POSTGRESQL_JADE_URL')
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
    
     DB.init_app(app)
