@@ -4,6 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pylint = "*"
 
 [packages]
 flask = "*"
@@ -11,6 +12,9 @@ flask-sqlalchemy = "*"
 basilica = "*"
 tweepy = "*"
 python-decouple = "*"
+sklearn = "*"
+python-dotenv = "*"
+scikit-learn = "*"
 
 [requires]
 python_version = "3.7"
