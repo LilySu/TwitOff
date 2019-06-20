@@ -3,8 +3,8 @@ from pickle import loads, dumps
 from decouple import config
 from flask import Flask, render_template, request
 from .models import DB, User
-from .twitter import add_or_update_user
-from .predict2 import predict_user, add_users
+from .twitter import add_or_update_user, add_users
+from .predict2 import predict_user
 
 def create_app():
     """Create and configure an instance of the Flask application."""
