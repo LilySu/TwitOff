@@ -1,3 +1,5 @@
+import os
+from pickle import loads, dumps
 from decouple import config
 from flask import Flask, render_template, request
 from .models import DB, User
