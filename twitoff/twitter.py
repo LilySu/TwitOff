@@ -12,6 +12,11 @@ TWITTER = tweepy.API(TWITTER_AUTH)
 
 BASILICA = basilica.Connection(config('BASILICA_KEY'))
 
+TWITTER_USERS = ['calebhicks', 'elonmusk', 'rrherr', 'SteveMartinToGo',
+                'nasa', 'sadserver', 'jkhowland', 'austen',
+                'common_squirrel', 'KenJennings', 'conanobrien',
+                'big_ben_clock', 'IAM_SHAKESPEARE']
+
 def add_or_update_user(username):
   """ Add or update user and their tweets else error if not a Twitter User"""
   try:
@@ -38,7 +43,7 @@ def add_or_update_user(username):
       raise e
   else:
       DB.session.commit()
-      
+
 def add_users(users=TWITTER_USERS):
     """
     Add/update a list of users (strings of user names).
