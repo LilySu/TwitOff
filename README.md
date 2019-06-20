@@ -1,2 +1,2 @@
 # TwitOff
-A web application for comparing Twitter users
+A web application for comparing Twitter users.
