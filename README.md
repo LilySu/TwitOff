@@ -91,4 +91,10 @@ Traceback (most recent call last):
   File "/Users/jamesrowland/.local/share/virtualenvs/TwitOff2-lB4Oa0xD/lib/python3.7/site-packages/decouple.py", line 70, in get
     raise UndefinedValueError('{} not found. Declare it as envvar or define a default value.'.format(option))
 decouple.UndefinedValueError: 'twitter api key' not found. Declare it as envvar or define a default value.
+     
+     #Went through tutorial again to 1:00:00, did not use pipenv: 
+         raise UndefinedValueError('{} not found. Declare it as envvar or define a default value.'.format(option))
+decouple.UndefinedValueError: <mytwitterfirstapikey> not found. Declare it as envvar or define a default value.
+
+     
 
