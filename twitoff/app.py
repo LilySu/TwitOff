@@ -1,3 +1,4 @@
+#configuring and routing
 import os
 from pickle import loads, dumps
 from decouple import config
@@ -19,19 +20,33 @@ def create_app():
         users = User.query.all()
         return render_template("base.html", title='Home', users=users)
 
-    @app.route('/user', methods=['POST'])
+    @app.route('/user', methods=['POST'])#route for users
+    #you can decorate a route multiple times, if someone makes a POST request, trigger this
+    #if someone does a GET request to user/
+    #decorating twice is allowed. Add users - post, get users get request
+    #GET request needs parameters, where POST doesn't
+    #To add users, we will use a form
+    #decorators are functions that take functions and returns functions
     @app.route('/user/<name>', methods=['GET'])
+    #name needs a default value because it might not exist
     def user(name=None, message=''):
+        # import pdb; pdb.set_trace() #imports python debugger
         name = name or request.values['user_name']
         try:
             if request.method == "POST":
-                add_or_update_user(name)
+                #we want to add a user if the request method is POST
+                add_or_update_user(name)#method lives in twitter
+                #not destructive if called multiple times
                 message = "User {} successfully added!".format(name)
+                #whether or not we get the user, we get their tweets
             tweets = User.query.filter(User.name == name).one().tweets
+            #query based on username, get their first user, return tweets
+            #"one" will raise an exeception if it doesn't find the user, first will return the first users only.
         except Exception as e:
             message = "Error adding {}: {}".format(name, e)
-            tweets = []
+            tweets = []#make sure tweet is an empty list
         return render_template("user.html", title=name, tweets=tweets, message=message)
+        #we want to display the name, tweet and message.
 
     @app.route('/compare', methods=['POST'])
     def compare(message=''):
