@@ -92,8 +92,9 @@ Traceback (most recent call last):
     raise UndefinedValueError('{} not found. Declare it as envvar or define a default value.'.format(option))
 decouple.UndefinedValueError: 'twitter api key' not found. Declare it as envvar or define a default value.
      
-     #Went through tutorial again to 1:00:00, did not use pipenv: 
-         raise UndefinedValueError('{} not found. Declare it as envvar or define a default value.'.format(option))
+# Went through tutorial again to 1:00:00, did not use pipenv:  flask run -h 0.0.0.0 -p 8000
+
+raise UndefinedValueError('{} not found. Declare it as envvar or define a default value.'.format(option))
 decouple.UndefinedValueError: <mytwitterfirstapikey> not found. Declare it as envvar or define a default value.
 
      
